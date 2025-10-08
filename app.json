@@ -1,0 +1,34 @@
+{
+  "name": "TrueLink API",
+  "description": "FastAPI wrapper around truelink to resolve direct links via /?url=...&key=... with API key enforcement.",
+  "keywords": ["fastapi", "python", "truelink", "api"],
+  "website": "https://devcenter.heroku.com/articles/getting-started-with-python",
+  "repository": "https://github.com/DrWhiteTG/truelink-api",
+  "success_url": "/health",
+  "env": {
+    "APP_KEY": {
+      "description": "API key required via ?key=... or x-key header.",
+      "value": "bearserver",
+      "required": true
+    },
+    "WEB_CONCURRENCY": {
+      "description": "Number of Gunicorn worker processes.",
+      "value": "3",
+      "required": false
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "scripts": {
+    "postdeploy": ""
+  }
+}
